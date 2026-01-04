@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Montserrat", sans-serif;
+
+  --color-primary: #d4af37;
+  --color-dark: #0a0a0a;
+  --color-surface: #121212;
+
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+  --animate-spin-slow: spin 12s linear infinite;
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Custom Utilities layer if needed, but for now just global styles */
+@layer base {
+  body {
+    @apply bg-dark text-gray-300 font-sans selection:bg-primary selection:text-black;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}
+
+/* Utilities for interaction */
+.img-zoom-container {
+    overflow: hidden;
+}
+.img-zoom-container img {
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-zoom-container:hover img {
+    transform: scale(1.05);
+}
